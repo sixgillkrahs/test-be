@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { getAllUsers, createUser } from './services/userService';
+import { createUser, getAllUsers } from './services/userService';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,6 +20,7 @@ app.post('/users', async (req: Request, res: Response) => {
     const user = await createUser(email, name);
     res.json(user);
 });
+
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
